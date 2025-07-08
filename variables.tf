@@ -9,3 +9,9 @@ variable "desired_count" {
   type        = number
   default     = 1
 }
+
+variable "aws_region" {
+  description = "AWS region"
+  type        = string
+  default     = "ap-southeast-2"  # or whatever region you want to use
+}
