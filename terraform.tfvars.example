@@ -1,0 +1,6 @@
+
+vpc_id             = "vpc-0fdd6b30b0f09311e"
+subnet_ids         = ["subnet-0c63f47fbe8fb77", "subnet-085f46d75886f84f", "subnet-030485322fe506c57"]
+security_group_id  = "sg-0a7b2393e5aef487"
+execution_role_arn = "arn:aws:iam::5216:role/tfstacks-role"
+alb_arn            = "arn:aws:elasticloadbalancing:REGION:ACCOUNT:loadbalancer/app/YOUR-ALB-NAME/ID"
