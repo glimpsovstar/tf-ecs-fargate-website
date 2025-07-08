@@ -1,4 +1,3 @@
-
 resource "aws_ecs_service" "website" {
   name            = "website-service"
   cluster         = aws_ecs_cluster.website.id
@@ -7,8 +6,8 @@ resource "aws_ecs_service" "website" {
   desired_count   = var.desired_count
 
   network_configuration {
-    subnets          = var.subnet_ids
-    security_groups  = [var.security_group_id]
+    subnets          = local.subnet_ids
+    security_groups  = [local.security_group_id]
     assign_public_ip = true
   }
 
