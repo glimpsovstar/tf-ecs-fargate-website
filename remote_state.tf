@@ -24,6 +24,9 @@ data "terraform_remote_state" "aws_role" {
 }
 
 locals {
+  # Instead of using the Terraform Cloud role, use AWS managed role
+  execution_role_arn = "arn:aws:iam::521614675974:role/ecsTaskExecutionRole"
+
   # Remote state references
   vpc_id            = data.terraform_remote_state.network.outputs.vpc_id
   subnet_ids        = data.terraform_remote_state.network.outputs.vpc_public_subnets
