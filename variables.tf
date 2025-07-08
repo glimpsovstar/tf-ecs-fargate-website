@@ -55,12 +55,6 @@ variable "repository" {
 
 # Local values for consistent tagging and naming
 locals {
-  # Existing remote state references
-  vpc_id            = data.terraform_remote_state.network.outputs.vpc_id
-  subnet_ids        = data.terraform_remote_state.network.outputs.vpc_public_subnets
-  security_group_id = data.terraform_remote_state.network.outputs.security_group-ssh_http_https_allowed
-  execution_role_arn = data.terraform_remote_state.aws_role.outputs.role_arn
-  
   # Common naming prefix
   name_prefix = "${var.project_name}-${var.environment}"
   
