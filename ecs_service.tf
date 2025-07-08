@@ -1,9 +1,14 @@
 resource "aws_ecs_service" "website" {
-  name            = "website-service"
+  name            = "${local.name_prefix}-service"
   cluster         = aws_ecs_cluster.website.id
   task_definition = aws_ecs_task_definition.website.arn
   launch_type     = "FARGATE"
   desired_count   = var.desired_count
+
+  deployment_configuration {
+    maximum_percent         = 200
+    minimum_healthy_percent = 50
+  }
 
   network_configuration {
     subnets          = local.subnet_ids
@@ -18,4 +23,13 @@ resource "aws_ecs_service" "website" {
   }
 
   depends_on = [aws_lb_listener.website]
+
+  tags = merge(local.common_tags, {
+    Name = "${local.name_prefix}-ecs-service"
+    Type = "ecs-service"
+  })
+
+  lifecycle {
+    ignore_changes = [task_definition]
+  }
 }
