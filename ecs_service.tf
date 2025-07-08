@@ -5,7 +5,6 @@ resource "aws_ecs_service" "website" {
   launch_type     = "FARGATE"
   desired_count   = var.desired_count
 
-
   network_configuration {
     subnets          = local.subnet_ids
     security_groups  = [local.security_group_id]
@@ -24,8 +23,4 @@ resource "aws_ecs_service" "website" {
     Name = "${local.name_prefix}-ecs-service"
     Type = "ecs-service"
   })
-
-  lifecycle {
-    ignore_changes = [task_definition]
-  }
 }

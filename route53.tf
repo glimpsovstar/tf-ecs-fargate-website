@@ -1,13 +1,13 @@
-# Data source to get the existing hosted zone
-data "aws_route53_zone" "hashidemos" {
-  name         = "sbx.hashidemos.io"
+# Data source to get YOUR hosted zone
+data "aws_route53_zone" "david_joo" {
+  name         = "david-joo.sbx.hashidemos.io"
   private_zone = false
 }
 
 # A record to point your subdomain to the ALB
 resource "aws_route53_record" "website" {
-  zone_id = data.aws_route53_zone.hashidemos.zone_id
-  name    = var.domain_name
+  zone_id = data.aws_route53_zone.david_joo.zone_id
+  name    = "website"  # This creates website.david-joo.sbx.hashidemos.io
   type    = "A"
 
   alias {
@@ -15,5 +15,4 @@ resource "aws_route53_record" "website" {
     zone_id                = aws_lb.website.zone_id
     evaluate_target_health = true
   }
-
 }

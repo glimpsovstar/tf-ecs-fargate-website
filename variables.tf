@@ -19,7 +19,7 @@ variable "aws_region" {
 variable "domain_name" {
   description = "Domain name for the website"
   type        = string
-  default     = "david-joo.sbx.hashidemos.io"
+  default     = "website.david-joo.sbx.hashidemos.io"
 }
 
 # New variables for better demo and tagging

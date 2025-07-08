@@ -10,12 +10,12 @@ output "load_balancer_url" {
 
 output "custom_domain_url" {
   description = "URL to access the application via custom domain"
-  value       = "http://${var.domain_name}"
+  value       = "http://website.david-joo.sbx.hashidemos.io"
 }
 
 output "domain_name" {
   description = "Custom domain name"
-  value       = var.domain_name
+  value       = "website.david-joo.sbx.hashidemos.io"
 }
 
 output "ecs_cluster_name" {
