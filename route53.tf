@@ -16,8 +16,4 @@ resource "aws_route53_record" "website" {
     evaluate_target_health = true
   }
 
-  tags = merge(local.common_tags, {
-    Name = "${local.name_prefix}-dns-record"
-    Type = "route53-record"
-  })
 }
