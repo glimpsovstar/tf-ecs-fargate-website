@@ -1,7 +1,7 @@
 variable "container_image" {
   description = "Container image for website"
   type        = string
-  default     = "nginx:latest"
+  default     = "quay.io/djoo_hashi/picture-playground:latest"
 }
 
 variable "desired_count" {
@@ -26,7 +26,7 @@ variable "domain_name" {
 variable "project_name" {
   description = "Name of the project"
   type        = string
-  default     = "meow-website"
+  default     = "picture-playground"
 }
 
 variable "environment" {

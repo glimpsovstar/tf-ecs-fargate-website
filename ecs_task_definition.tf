@@ -19,7 +19,6 @@ resource "aws_ecs_task_definition" "website" {
         }
       ]
       
-      # Add logging configuration
       logConfiguration = {
         logDriver = "awslogs"
         options = {
@@ -29,7 +28,6 @@ resource "aws_ecs_task_definition" "website" {
         }
       }
       
-      # Environment variables for demo
       environment = [
         {
           name  = "ENVIRONMENT"
@@ -38,10 +36,6 @@ resource "aws_ecs_task_definition" "website" {
         {
           name  = "PROJECT_NAME"
           value = var.project_name
-        },
-        {
-          name  = "REGION"
-          value = var.aws_region
         }
       ]
     }
